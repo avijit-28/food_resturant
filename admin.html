@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Triyasha F F C - Admin Panel</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .admin-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .login-form, .menu-form {
+      background: #f5f5f5;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    
+    .form-group {
+      margin-bottom: 15px;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    
+    button {
+      background: #d84315;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    
+    button:hover {
+      background: #bf360c;
+    }
+    
+    .hidden {
+      display: none;
+    }
+    
+    .menu-list {
+      margin-top: 20px;
+    }
+    
+    .menu-item-card {
+      background: white;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .menu-actions {
+      margin-top: 10px;
+    }
+    
+    .menu-actions button {
+      margin-right: 10px;
+      padding: 5px 10px;
+    }
+    
+    .delete-btn {
+      background: #c62828;
+    }
+    
+    .back-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: #d84315;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+  <button class="back-btn" id="backBtn">← Back to Menu</button>
+
+  <header class="site-header">
+    <img src="images/logo.png" alt="Triyasha F F C Logo" class="logo">
+    <h1>Admin Panel</h1>
+  </header>
+
+  <main>
+    <div class="admin-container">
+      <!-- Admin Dashboard -->
+      <div id="admin-dashboard">
+        <h2>Menu Management</h2>
+        
+        <!-- Menu Form -->
+        <div class="menu-form">
+          <h3>Add/Edit Menu Item</h3>
+          <input type="hidden" id="edit-id">
+          
+          <div class="form-group">
+            <label for="category">Category</label>
+            <select id="category" required>
+              <option value="">Select Category</option>
+              <option value="starters">Starters</option>
+              <option value="biryani">Biryani</option>
+              <option value="mughlai">Mughlai</option>
+              <option value="rice">Rice</option>
+              <option value="chowmin">Chowmin</option>
+              <option value="momos">Momos</option>
+              <option value="soup">Soup</option>
+              <option value="gravy">Chinese Gravy</option>
+              <option value="roti">Roti/Rolls</option>
+              <option value="indiangravy">Indian Gravy</option>
+              <option value="combo">Combo Offers</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="item-name">Item Name</label>
+            <input type="text" id="item-name" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="item-price">Price</label>
+            <input type="text" id="item-price" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="item-image">Image URL</label>
+            <input type="text" id="item-image" placeholder="e.g., images/starters/green-salad.jpg">
+          </div>
+          
+          <button id="save-item">Save Item</button>
+          <button id="cancel-edit" class="hidden">Cancel</button>
+        </div>
+        
+        <!-- Menu Items List -->
+        <div class="menu-list">
+          <h3>Current Menu Items</h3>
+          <div id="menu-items-container">
+            <!-- Items will be loaded here -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="admin.js"></script>
+</body>
+</html>
